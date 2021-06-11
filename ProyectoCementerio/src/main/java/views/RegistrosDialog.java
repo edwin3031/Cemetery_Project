@@ -5,18 +5,34 @@
  */
 package views;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ervin
  */
 public class RegistrosDialog extends javax.swing.JDialog {
 
-    /**
-     * Creates new form RegistrosDialog
-     */
+    DefaultTableModel modelo;
+    
     public RegistrosDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("No Pagina");
+        modelo.addColumn("Nombres del Difunto");
+        modelo.addColumn("Apellidos");
+        modelo.addColumn("No de Cedula");
+        modelo.addColumn("Fecha de funcion");
+        modelo.addColumn("Nombre del Responsable");
+        modelo.addColumn("Apellidos");
+        modelo.addColumn("No de Cedula");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Pago de terreno");
+        modelo.addColumn("Pago de Cepultura");
+        
+        
     }
 
     /**

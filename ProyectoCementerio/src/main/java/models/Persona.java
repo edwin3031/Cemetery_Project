@@ -7,10 +7,6 @@ package models;
 
 import java.util.Date;
 
-/**
- *
- * @author Comtech
- */
 public class Persona {
    private String nombres;
    private String apellidos;
