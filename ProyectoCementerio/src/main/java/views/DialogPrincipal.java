@@ -110,11 +110,11 @@ public class DialogPrincipal extends javax.swing.JDialog {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        RegistrosDialog dialog = new RegistrosDialog(new javax.swing.JFrame(), true);
+        DialogBuscar dialog = new DialogBuscar(new javax.swing.JFrame(), true);
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        DialogBuscar dialog = new DialogBuscar(new javax.swing.JFrame(), true);
+        DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed

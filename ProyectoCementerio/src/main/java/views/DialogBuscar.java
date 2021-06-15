@@ -5,18 +5,34 @@
  */
 package views;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
- * @author Ervin
+ * @author JSLG
  */
 public class DialogBuscar extends javax.swing.JDialog {
 
-    /**
-     * Creates new form BuscarDialog
-     */
+    DefaultTableModel modelo;
+    
     public DialogBuscar(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        modelo = new DefaultTableModel();
+        modelo.addColumn("Codigo");
+        modelo.addColumn("No Pagina");
+        modelo.addColumn("Nombres Difunto");
+        modelo.addColumn("Apellidos");
+        modelo.addColumn("No Cedula");
+        modelo.addColumn("Fecha defuncion");
+        modelo.addColumn("Nombre Responsable");
+        modelo.addColumn("Apellidos");
+        modelo.addColumn("No Cedula");
+        modelo.addColumn("Direccion");
+        modelo.addColumn("Pago terreno");
+        modelo.addColumn("Pago Cepultura");
+        
+        
     }
 
     /**
@@ -28,219 +44,174 @@ public class DialogBuscar extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnEditar = new javax.swing.JButton();
-        btnBorrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
-        BusquedaCodigo = new javax.swing.JTextField();
-        lb = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        BuscarXNombre = new javax.swing.JTextField();
-        BusquedaAño = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        BusquedaAño1 = new javax.swing.JTextField();
-        btnNuevo = new javax.swing.JButton();
+        BuscarDifunto = new javax.swing.JTextField();
+        BuscarCodigo = new javax.swing.JTextField();
+        FDefuncion1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        BuscarDifunto1 = new javax.swing.JTextField();
+        FDefuncion2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        btnEditar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEditar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnEditar.setForeground(new java.awt.Color(0, 0, 204));
-        btnEditar.setText("EDITAR");
-        btnEditar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
-
-        btnBorrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnBorrar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnBorrar.setForeground(new java.awt.Color(0, 0, 204));
-        btnBorrar.setText("BORRAR");
-        btnBorrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 204)));
-
-        jLabel2.setFont(new java.awt.Font("Trajan Pro 3", 1, 14)); // NOI18N
-        jLabel2.setText("                                BUSQUEDA");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 204), new java.awt.Color(0, 0, 255), new java.awt.Color(0, 0, 204), new java.awt.Color(0, 0, 204)));
-
-        jLabel3.setFont(new java.awt.Font("Adobe Gothic Std B", 0, 13)); // NOI18N
-        jLabel3.setText("No Codigo");
-
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(0, 0, 204));
-        btnSalir.setText("SALIR");
-        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 204)));
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-
-        BusquedaCodigo.setFont(new java.awt.Font("Adobe Ming Std L", 0, 13)); // NOI18N
-        BusquedaCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BusquedaCodigoActionPerformed(evt);
-            }
-        });
-
-        lb.setFont(new java.awt.Font("Adobe Gothic Std B", 0, 13)); // NOI18N
-        lb.setText("Nombres");
-
-        jLabel5.setFont(new java.awt.Font("Adobe Gothic Std B", 0, 13)); // NOI18N
-        jLabel5.setText("Anio");
-
-        BuscarXNombre.setFont(new java.awt.Font("Adobe Ming Std L", 0, 13)); // NOI18N
-
-        BusquedaAño.setFont(new java.awt.Font("Adobe Ming Std L", 0, 13)); // NOI18N
-        BusquedaAño.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BusquedaAñoActionPerformed(evt);
-            }
-        });
-
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jTextField2.setText("Llene uno de los campos para realizar la busqueda(No codigo, Anio, Fecha defuncion, Nombres del difunto)");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura.PNG"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 0, 1060, 120);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "No Pagina", " Difunto", "Apellido", "Cedula", " Defuncion", " Responsable", "Apellido", "Cedula", "Terreno", "Cepultura"
             }
         ));
+        jTable1.setSelectionBackground(new java.awt.Color(0, 102, 255));
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(100);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
+        }
 
-        jLabel6.setFont(new java.awt.Font("Adobe Gothic Std B", 0, 13)); // NOI18N
-        jLabel6.setText("Fecha defuncion");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(290, 180, 760, 330);
 
-        BusquedaAño1.setFont(new java.awt.Font("Adobe Ming Std L", 0, 13)); // NOI18N
-        BusquedaAño1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Busqueda Responsable", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 255))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 220, 260, 120);
+
+        jLabel4.setText("Nombres");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(30, 250, 50, 14);
+
+        jLabel5.setText("Defuncion");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(30, 280, 50, 20);
+
+        jLabel6.setText("Codigo");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(30, 310, 40, 14);
+
+        BuscarDifunto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BusquedaAño1ActionPerformed(evt);
+                BuscarDifuntoActionPerformed(evt);
             }
         });
+        getContentPane().add(BuscarDifunto);
+        BuscarDifunto.setBounds(80, 250, 180, 20);
 
-        btnNuevo.setBackground(new java.awt.Color(255, 255, 255));
-        btnNuevo.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(0, 51, 204));
-        btnNuevo.setText("Nuevo");
-        btnNuevo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 204)));
+        BuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarCodigoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BuscarCodigo);
+        BuscarCodigo.setBounds(80, 310, 180, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura.PNG"))); // NOI18N
+        FDefuncion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FDefuncion1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FDefuncion1);
+        FDefuncion1.setBounds(80, 280, 180, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1019, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BusquedaAño1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BusquedaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BusquedaAño, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lb)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BuscarXNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(420, 420, 420)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(292, 292, 292))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(285, 285, 285)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(22, 22, 22))))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(BusquedaAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addComponent(BusquedaAño1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BusquedaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lb)
-                        .addComponent(BuscarXNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
+        jLabel7.setText("Nombres");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(30, 390, 50, 14);
+
+        jLabel8.setText("No Cedula");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(30, 420, 50, 20);
+
+        BuscarDifunto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarDifunto1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BuscarDifunto1);
+        BuscarDifunto1.setBounds(80, 390, 180, 20);
+
+        FDefuncion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FDefuncion2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FDefuncion2);
+        FDefuncion2.setBounds(80, 420, 180, 20);
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Busqueda Responsable", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 255))); // NOI18N
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(20, 360, 260, 100);
+
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscar);
+        btnBuscar.setBounds(80, 480, 130, 30);
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel11.setText("   Llene uno de los campos del formulario de busqueda del difunto o del formulario de busqueda del reponsable.");
+        jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 255), new java.awt.Color(51, 51, 255), new java.awt.Color(51, 51, 255), new java.awt.Color(51, 51, 255)));
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(310, 140, 685, 21);
+
+        jLabel1.setFont(new java.awt.Font("Vani", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setText("  FORMULARIOS DE BUSQUEDA");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 180, 250, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void BuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_BuscarCodigoActionPerformed
 
-    private void BusquedaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaCodigoActionPerformed
+    private void BuscarDifuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDifuntoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BusquedaCodigoActionPerformed
+    }//GEN-LAST:event_BuscarDifuntoActionPerformed
 
-    private void BusquedaAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaAñoActionPerformed
+    private void FDefuncion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDefuncion1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BusquedaAñoActionPerformed
+    }//GEN-LAST:event_FDefuncion1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void BuscarDifunto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDifunto1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_BuscarDifunto1ActionPerformed
 
-    private void BusquedaAño1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BusquedaAño1ActionPerformed
+    private void FDefuncion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDefuncion2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BusquedaAño1ActionPerformed
+    }//GEN-LAST:event_FDefuncion2ActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -286,22 +257,23 @@ public class DialogBuscar extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BuscarXNombre;
-    private javax.swing.JTextField BusquedaAño;
-    private javax.swing.JTextField BusquedaAño1;
-    private javax.swing.JTextField BusquedaCodigo;
-    private javax.swing.JButton btnBorrar;
-    private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnNuevo;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JTextField BuscarCodigo;
+    private javax.swing.JTextField BuscarDifunto;
+    private javax.swing.JTextField BuscarDifunto1;
+    private javax.swing.JTextField FDefuncion1;
+    private javax.swing.JTextField FDefuncion2;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JLabel lb;
     // End of variables declaration//GEN-END:variables
 }

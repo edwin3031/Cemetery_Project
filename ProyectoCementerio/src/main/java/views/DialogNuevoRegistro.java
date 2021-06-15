@@ -55,8 +55,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
         jLabel13 = new javax.swing.JLabel();
         txtPagoTerreno = new javax.swing.JTextField();
         txtPagoCepultura = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
-        btnSAlir = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtNomDifunto = new javax.swing.JTextField();
@@ -69,6 +68,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
         lbDatosDifunto1 = new javax.swing.JLabel();
         lbDatosResponsable = new javax.swing.JLabel();
         lbDatosPago = new javax.swing.JLabel();
+        btnGuardar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,11 +106,11 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 txtNomResponsableKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNomResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 260, 30));
+        getContentPane().add(txtNomResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 260, 30));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel4.setText("No Cedula:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel8.setText("Apellidos:");
@@ -118,25 +118,25 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel9.setText("Nombres:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, 30));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel10.setText("No Cedula:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, 30));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, 30));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel11.setText("Dirección:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 500, -1, 30));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, 30));
 
         txtCedulaResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaResponsableActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCedulaResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, 200, 30));
+        getContentPane().add(txtCedulaResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 200, 30));
 
         txtDirrecion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(txtDirrecion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 490, 560, 30));
+        getContentPane().add(txtDirrecion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 560, 30));
 
         jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel12.setText("Pago de terreno de cepultura:");
@@ -144,7 +144,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel13.setText("Pago permiso de cepultura:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 620, -1, 30));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, 30));
 
         txtPagoTerreno.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPagoTerreno.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -152,7 +152,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 txtPagoTerrenoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtPagoTerreno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, 210, 30));
+        getContentPane().add(txtPagoTerreno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 210, 30));
 
         txtPagoCepultura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPagoCepultura.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -160,35 +160,23 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 txtPagoCepulturaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtPagoCepultura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 610, 210, 30));
+        getContentPane().add(txtPagoCepultura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, 210, 30));
 
-        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(0, 0, 204));
-        btnGuardar.setText("GUARDAR");
-        btnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+        btnSalir.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(0, 0, 204));
+        btnSalir.setText("SALIR");
+        btnSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 720, 150, 50));
-
-        btnSAlir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSAlir.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnSAlir.setForeground(new java.awt.Color(102, 102, 255));
-        btnSAlir.setText("SALIR");
-        btnSAlir.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 51, 255), 1, true));
-        btnSAlir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSAlirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSAlir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 720, 160, 50));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 700, 150, 40));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel14.setText("Fecha defunción:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, -1, 30));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, 30));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel15.setText("Nombres:");
@@ -207,18 +195,18 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 txtNoCedulaDifuntoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNoCedulaDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+        getContentPane().add(txtNoCedulaDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 170, 30));
 
         txtFechaDefuncion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFechaDefuncionKeyTyped(evt);
             }
         });
-        getContentPane().add(txtFechaDefuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 170, 30));
+        getContentPane().add(txtFechaDefuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
 
         txtApellidoResponsable.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         txtApellidoResponsable.setText("Apellidos:");
-        getContentPane().add(txtApellidoResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, 30));
+        getContentPane().add(txtApellidoResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, 30));
 
         txtAPELLIDOSResponsable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtAPELLIDOSResponsable.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +214,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 txtAPELLIDOSResponsableActionPerformed(evt);
             }
         });
-        getContentPane().add(txtAPELLIDOSResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 260, 30));
+        getContentPane().add(txtAPELLIDOSResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 260, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura (4).png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -249,9 +237,21 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
         lbDatosPago.setBackground(new java.awt.Color(255, 255, 255));
         lbDatosPago.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDatosPago.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Datos De Pago", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 13), new java.awt.Color(0, 0, 255))); // NOI18N
-        getContentPane().add(lbDatosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 660, 110));
+        getContentPane().add(lbDatosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 660, 110));
 
-        setSize(new java.awt.Dimension(715, 836));
+        btnGuardar1.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuardar1.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        btnGuardar1.setForeground(new java.awt.Color(0, 0, 204));
+        btnGuardar1.setText("GUARDAR");
+        btnGuardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 700, 150, 40));
+
+        setSize(new java.awt.Dimension(712, 807));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -263,7 +263,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaResponsableActionPerformed
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         if(ValidacionObligatoria() == false){
             JOptionPane.showMessageDialog(null,"El nombre del responsable es obligatorio","CAMPO OBLIGATORIO",JOptionPane.ERROR_MESSAGE);
             return;
@@ -296,11 +296,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
             }
             Limpiar();
         }
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnSAlirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSAlirActionPerformed
-       dispose();
-    }//GEN-LAST:event_btnSAlirActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtAPELLIDOSResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAPELLIDOSResponsableActionPerformed
         // TODO add your handling code here:
@@ -333,6 +329,10 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
     private void txtPagoCepulturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPagoCepulturaKeyTyped
          soloNumeros(evt);
     }//GEN-LAST:event_txtPagoCepulturaKeyTyped
+
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,8 +420,8 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnSAlir;
+    private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
