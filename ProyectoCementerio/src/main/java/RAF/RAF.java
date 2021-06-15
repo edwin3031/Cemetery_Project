@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import models.Difunto;
 import models.Registro;
+import models.Responsable;
+import models.Terreno;
 
 /**
  *
@@ -222,14 +224,24 @@ public class RAF {
         Registro emp=new Registro();
         emp.setCodigo(raf.readUTF().replace('\0',' ').trim());
         emp.setFechaRegistro(raf.readUTF().replace('\0',' ').trim());
-        emp.getPersonaDifunto().setNombres(raf.readUTF().replace('\0',' ').trim());
+        //Difunto df = new Difunto(raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim());
+        /*
+        df.setNombres(raf.readUTF().replace('\0',' ').trim());
+        df.setApellidos(raf.readUTF().replace('\0',' ').trim());
+        df.setNoCedula(raf.readUTF().replace('\0',' ').trim());
+        df.setFechaDefuncion(raf.readUTF().replace('\0',' ').trim());
+        */
+        emp.setPersonaDifunto(new Difunto(raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim()));
+        emp.setPersonaResponsable(new Responsable(raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim(),raf.readUTF().replace('\0',' ').trim()));
+        emp.setTierra(new Terreno(raf.readUTF().replace('\0',' ').trim(),raf.readInt(),raf.readInt()));
+        /*emp.getPersonaDifunto().setNombres(raf.readUTF().replace('\0',' ').trim());
         emp.getPersonaDifunto().setApellidos(raf.readUTF().replace('\0',' ').trim());
         emp.getPersonaDifunto().setNoCedula(raf.readUTF().replace('\0',' ').trim());
         emp.getPersonaDifunto().setFechaDefuncion(raf.readUTF().replace('\0',' ').trim());
         emp.getPersonaResponsable().setNombres(raf.readUTF().replace('\0',' ').trim());
         emp.getPersonaResponsable().setApellidos(raf.readUTF().replace('\0',' ').trim());
         emp.getPersonaResponsable().setNoCedula(raf.readUTF().replace('\0',' ').trim());
-        emp.getPersonaResponsable().setDireccion(raf.readUTF().replace('\0',' ').trim());
+        emp.getPersonaResponsable().setDireccion(raf.readUTF().replace('\0',' ').trim());*/
         return emp;
     }
     /*

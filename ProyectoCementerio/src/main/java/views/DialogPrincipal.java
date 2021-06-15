@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package views;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import views.DialogNuevoRegistro;
 /**
  *
@@ -114,7 +117,11 @@ public class DialogPrincipal extends javax.swing.JDialog {
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
+        try {
+            DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
+        } catch (IOException ex) {
+            Logger.getLogger(DialogPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed

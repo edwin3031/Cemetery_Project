@@ -5,18 +5,69 @@
  */
 package views;
 
+import RAF.RAF;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import models.Registro;
+
 /**
  *
  * @author Ervin
  */
 public class DialogMostrarRegistro extends javax.swing.JDialog {
+    RAF raf = new RAF();
+    DefaultTableModel modelo;
+    List<Registro> registros;
 
     /**
      * Creates new form BuscarDialog
      */
-    public DialogMostrarRegistro(java.awt.Frame parent, boolean modal) {
+    public DialogMostrarRegistro(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
+        jtableRegistros.getTableHeader().setFont(new Font("Arial Black",Font.BOLD,14));
+        jtableRegistros.getTableHeader().setOpaque(false);
+        
+        DefaultTableCellRenderer renderizador = new DefaultTableCellRenderer();
+        renderizador.setBackground(new Color(32,136,203));
+        renderizador.setForeground(new java.awt.Color(255,255,255));
+        renderizador.setHorizontalAlignment(JLabel.CENTER);
+        DefaultTableCellRenderer renderCelda = new DefaultTableCellRenderer();
+        renderCelda.setHorizontalAlignment(JLabel.CENTER);
+    
+        
+        for (int i = 0; i < jtableRegistros.getModel().getColumnCount(); i++) {
+            jtableRegistros.getColumnModel().getColumn(i).setHeaderRenderer(renderizador);
+            jtableRegistros.getColumnModel().getColumn(i).setCellRenderer(renderCelda);
+        }
+        
+        modelo = (DefaultTableModel) jtableRegistros.getModel();
+        registros = raf.vertodo();
+        for (int i = 0; i < registros.size(); i++) {
+            modelo.addRow(new Object[] {registros.get(i).getCodigo(),
+                                        registros.get(i).getPersonaDifunto().getNombres(),
+                                        registros.get(i).getPersonaDifunto().getApellidos(),
+                                        registros.get(i).getPersonaDifunto().getFechaDefuncion(),
+                                        registros.get(i).getPersonaDifunto().getNoCedula(),
+                                        registros.get(i).getPersonaResponsable().getNombres(),
+                                        registros.get(i).getPersonaResponsable().getApellidos(),
+                                        registros.get(i).getPersonaResponsable().getNoCedula(),
+                                        registros.get(i).getTierra().getCodigo(),
+                                        registros.get(i).getTierra().getPagoSepultura(),
+                                        registros.get(i).getTierra().getPagoTerreno()});
+            
+        }
+        //Mo es hora
+        jtableRegistros.setModel(modelo);
+        System.out.println(registros.size());
+        
     }
 
     /**
@@ -35,7 +86,7 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
         btnMostrarRecientes = new javax.swing.JButton();
         btnMostrarRecientes2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jtableRegistros = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,19 +130,17 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
         });
         getContentPane().add(btnMostrarRecientes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 200, 40));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jtableRegistros.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jtableRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "No Pagina", " Difunto", "Apellido", "Cedula", " Defuncion", " Responsable", "Apellido", "Cedula", "Terreno", "Cepultura"
             }
         ));
-        jTable2.setSelectionBackground(new java.awt.Color(0, 102, 255));
-        jScrollPane2.setViewportView(jTable2);
+        jtableRegistros.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        jScrollPane2.setViewportView(jtableRegistros);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 980, -1));
 
@@ -140,14 +189,18 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                try {
+                    DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
+                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosing(java.awt.event.WindowEvent e) {
+                            System.exit(0);
+                        }
+                    });
+                    dialog.setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(DialogMostrarRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -160,6 +213,6 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jtableRegistros;
     // End of variables declaration//GEN-END:variables
 }

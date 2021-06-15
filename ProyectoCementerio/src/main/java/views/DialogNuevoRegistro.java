@@ -26,7 +26,8 @@ import models.Terreno;
 public class DialogNuevoRegistro extends javax.swing.JDialog {
 
     ArrayList<Registro> registros = new ArrayList<Registro>();
-    Registro RG = new Registro("1", "", null, null, null);
+    //Registro RG = new Registro("1", "", null, null, null);
+    //Arregla el tamaño de esa ventana amor no puedo darle al boton guardar
 
     public DialogNuevoRegistro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -68,99 +69,100 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
         lbDatosDifunto1 = new javax.swing.JLabel();
         lbDatosResponsable = new javax.swing.JLabel();
         lbDatosPago = new javax.swing.JLabel();
-        btnGuardar1 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1.setText("No Pagina:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 30));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("Fecha:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, 30));
 
-        txtFecha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 130, 30));
+        txtFecha.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 130, 20));
 
-        txtNoPagina.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNoPagina.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNoPagina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNoPaginaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNoPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 130, 30));
+        getContentPane().add(txtNoPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 130, 20));
 
-        txtApellidoDifunto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtApellidoDifunto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtApellidoDifunto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidoDifuntoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtApellidoDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 250, 30));
+        getContentPane().add(txtApellidoDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 250, 20));
 
-        txtNomResponsable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomResponsable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNomResponsable.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNomResponsableKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNomResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 260, 30));
+        getContentPane().add(txtNomResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 260, 20));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setText("No Cedula:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, 30));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, 30));
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel8.setText("Apellidos:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, 30));
 
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel9.setText("Nombres:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, 30));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, 30));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel10.setText("No Cedula:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, 30));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, -1, 30));
 
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel11.setText("Dirección:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, 30));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, 30));
 
+        txtCedulaResponsable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtCedulaResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedulaResponsableActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCedulaResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, 200, 30));
+        getContentPane().add(txtCedulaResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 200, 20));
 
-        txtDirrecion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        getContentPane().add(txtDirrecion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, 560, 30));
+        txtDirrecion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        getContentPane().add(txtDirrecion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 560, 20));
 
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel12.setText("Pago de terreno de cepultura:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, -1, 30));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, -1, 30));
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel13.setText("Pago permiso de cepultura:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 620, -1, 30));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, 30));
 
-        txtPagoTerreno.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPagoTerreno.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPagoTerreno.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPagoTerrenoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtPagoTerreno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 210, 30));
+        getContentPane().add(txtPagoTerreno, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 210, 20));
 
-        txtPagoCepultura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPagoCepultura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtPagoCepultura.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPagoCepulturaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtPagoCepultura, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 620, 210, 30));
+        getContentPane().add(txtPagoCepultura, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 210, 20));
 
         btnSalir.setBackground(new java.awt.Color(255, 255, 255));
         btnSalir.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
@@ -172,49 +174,49 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 700, 150, 40));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 150, 30));
 
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel14.setText("Fecha defunción:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, 30));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, -1, 30));
 
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel15.setText("Nombres:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, 30));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, 30));
 
-        txtNomDifunto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNomDifunto.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtNomDifunto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNomDifuntoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNomDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 250, 30));
+        getContentPane().add(txtNomDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 250, 20));
 
         txtNoCedulaDifunto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNoCedulaDifuntoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtNoCedulaDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 170, 30));
+        getContentPane().add(txtNoCedulaDifunto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 170, 20));
 
         txtFechaDefuncion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtFechaDefuncionKeyTyped(evt);
             }
         });
-        getContentPane().add(txtFechaDefuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 170, 30));
+        getContentPane().add(txtFechaDefuncion, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 170, 20));
 
-        txtApellidoResponsable.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        txtApellidoResponsable.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         txtApellidoResponsable.setText("Apellidos:");
-        getContentPane().add(txtApellidoResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, 30));
+        getContentPane().add(txtApellidoResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, 30));
 
-        txtAPELLIDOSResponsable.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtAPELLIDOSResponsable.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtAPELLIDOSResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAPELLIDOSResponsableActionPerformed(evt);
             }
         });
-        getContentPane().add(txtAPELLIDOSResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 260, 30));
+        getContentPane().add(txtAPELLIDOSResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 260, 20));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Captura (4).png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -222,36 +224,36 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
         lbDatosGenerales.setBackground(new java.awt.Color(255, 255, 255));
         lbDatosGenerales.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDatosGenerales.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Datos Generales", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 13), new java.awt.Color(0, 0, 255))); // NOI18N
-        getContentPane().add(lbDatosGenerales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 660, 110));
+        getContentPane().add(lbDatosGenerales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 660, 90));
 
         lbDatosDifunto1.setBackground(new java.awt.Color(255, 255, 255));
         lbDatosDifunto1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDatosDifunto1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Datos Del Difunto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 13), new java.awt.Color(0, 0, 255))); // NOI18N
-        getContentPane().add(lbDatosDifunto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 660, 120));
+        getContentPane().add(lbDatosDifunto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 660, 110));
 
         lbDatosResponsable.setBackground(new java.awt.Color(255, 255, 255));
         lbDatosResponsable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDatosResponsable.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Datos Del Responsable", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 13), new java.awt.Color(0, 0, 255))); // NOI18N
-        getContentPane().add(lbDatosResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 660, 160));
+        getContentPane().add(lbDatosResponsable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 660, 150));
 
         lbDatosPago.setBackground(new java.awt.Color(255, 255, 255));
         lbDatosPago.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDatosPago.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Datos De Pago", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 13), new java.awt.Color(0, 0, 255))); // NOI18N
-        getContentPane().add(lbDatosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 660, 110));
+        getContentPane().add(lbDatosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 660, 90));
 
-        btnGuardar1.setBackground(new java.awt.Color(255, 255, 255));
-        btnGuardar1.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
-        btnGuardar1.setForeground(new java.awt.Color(0, 0, 204));
-        btnGuardar1.setText("GUARDAR");
-        btnGuardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
-        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 13)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(0, 0, 204));
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 204)));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardar1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 700, 150, 40));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 150, 30));
 
-        setSize(new java.awt.Dimension(712, 807));
+        setSize(new java.awt.Dimension(716, 670));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -264,7 +266,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
     }//GEN-LAST:event_txtCedulaResponsableActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        if(ValidacionObligatoria() == false){
+        /*if(ValidacionObligatoria() == false){
             JOptionPane.showMessageDialog(null,"El nombre del responsable es obligatorio","CAMPO OBLIGATORIO",JOptionPane.ERROR_MESSAGE);
             return;
         }else{
@@ -295,7 +297,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
                 System.out.println("ERROR");
             }
             Limpiar();
-        }
+        }*/
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtAPELLIDOSResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAPELLIDOSResponsableActionPerformed
@@ -330,9 +332,40 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
          soloNumeros(evt);
     }//GEN-LAST:event_txtPagoCepulturaKeyTyped
 
-    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGuardar1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        if(ValidacionObligatoria() == false){
+            JOptionPane.showMessageDialog(null,"El nombre del responsable es obligatorio","CAMPO OBLIGATORIO",JOptionPane.ERROR_MESSAGE);
+            return;
+        }else{
+            Difunto D = new Difunto();
+            D.setNombres(txtNomDifunto.getText());
+            D.setApellidos(txtApellidoDifunto.getText());
+            D.setFechaDefuncion(txtFechaDefuncion.getText());
+            D.setNoCedula(txtNoCedulaDifunto.getText());
+            Responsable R = new Responsable();
+            R.setNombres(txtNomResponsable.getText());
+            R.setApellidos(txtAPELLIDOSResponsable.getText());
+            R.setDireccion(txtDirrecion.getText());
+            R.setNoCedula(txtCedulaResponsable.getText());
+            Terreno T = new Terreno();
+            String codigo = txtFechaDefuncion.getText() + "-" + (registros.size()+1);
+            T.setCodigo(codigo);
+            T.setPagoSepultura(Integer.parseInt(txtPagoCepultura.getText()));
+            T.setPagoTerreno(Integer.parseInt(txtPagoTerreno.getText()));
+            
+                    
+            Registro RG = new Registro(codigo,"",D,R,T);
+            System.out.println(RG.getCodigo());
+            registros.add(RG);
+            RAF rf = new RAF();
+            try {
+                rf.guardar(RG);
+            } catch (IOException ex) {
+                System.out.println("ERROR");
+            }
+            Limpiar();
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,7 +453,7 @@ public class DialogNuevoRegistro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGuardar1;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
