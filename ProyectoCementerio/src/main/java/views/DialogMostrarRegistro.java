@@ -8,10 +8,13 @@ package views;
 import RAF.RAF;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -84,9 +87,10 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jLabel1 = new javax.swing.JLabel();
         btnMostrarRecientes = new javax.swing.JButton();
-        btnMostrarRecientes2 = new javax.swing.JButton();
+        btnGuardarRegistros = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtableRegistros = new javax.swing.JTable();
+        btnMostrarRecientes3 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,17 +122,17 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
                 btnMostrarRecientesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMostrarRecientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 150, 200, 40));
+        getContentPane().add(btnMostrarRecientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, 200, 40));
 
-        btnMostrarRecientes2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnMostrarRecientes2.setText("Recientes");
-        btnMostrarRecientes2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        btnMostrarRecientes2.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarRegistros.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnGuardarRegistros.setText("Guardar Registros");
+        btnGuardarRegistros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        btnGuardarRegistros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarRecientes2ActionPerformed(evt);
+                btnGuardarRegistrosActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMostrarRecientes2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 200, 40));
+        getContentPane().add(btnGuardarRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 200, 40));
 
         jtableRegistros.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jtableRegistros.setModel(new javax.swing.table.DefaultTableModel(
@@ -144,6 +148,16 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 980, -1));
 
+        btnMostrarRecientes3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnMostrarRecientes3.setText("Recientes");
+        btnMostrarRecientes3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        btnMostrarRecientes3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarRecientes3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMostrarRecientes3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 200, 40));
+
         setSize(new java.awt.Dimension(1056, 705));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -152,9 +166,62 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnMostrarRecientesActionPerformed
 
-    private void btnMostrarRecientes2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarRecientes2ActionPerformed
+    private void btnGuardarRegistrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarRegistrosActionPerformed
+        JFileChooser selectorCarpeta = new JFileChooser();
+        selectorCarpeta.setDialogTitle("Seleccione la carpeta donde desea guardar los registros");
+        selectorCarpeta.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        selectorCarpeta.setAcceptAllFileFilterUsed(false);
+        
+        if(selectorCarpeta.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
+            //File carpetaSeleccionada = selectorCarpeta.getCurrentDirectory();
+            File carpetaSeleccionada = selectorCarpeta.getSelectedFile();
+            File archivo = new File(carpetaSeleccionada.getAbsolutePath() + File.separator +"Cementerio.txt");
+            
+            try (FileWriter fw = new FileWriter(archivo)) {
+
+                for(Registro r: registros){
+                
+                //No se porque se desordeno
+                fw.write(limit(r.getCodigo(),12) + "\n");
+                fw.write(limit(r.getFechaRegistro(),10)+ "\n");
+                fw.write(limit(r.getPersonaDifunto().getNombres(),30)+ "\n");
+                fw.write(limit(r.getPersonaDifunto().getApellidos(),30)+ "\n");
+                fw.write(limit(r.getPersonaDifunto().getNoCedula(),16)+ "\n");
+                fw.write(limit(r.getPersonaDifunto().getFechaDefuncion(),10)+ "\n");
+                fw.write(limit(r.getPersonaResponsable().getNombres(),30)+ "\n");
+                fw.write(limit(r.getPersonaResponsable().getApellidos(),30)+ "\n");
+                fw.write(limit(r.getPersonaResponsable().getNoCedula(),16)+ "\n");
+                fw.write(limit(r.getPersonaResponsable().getDireccion(),100)+ "\n");
+                fw.write(limit(r.getTierra().getCodigo(),12)+ "\n");
+                fw.write(r.getTierra().getPagoTerreno()+ "\n");
+                fw.write(r.getTierra().getPagoSepultura()+ "\n");
+                fw.write("\n\n\n");
+                fw.write(r.getCodigo());
+                }
+
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            
+            
+        }
+    }//GEN-LAST:event_btnGuardarRegistrosActionPerformed
+
+    
+    private String limit(String text, int size) {
+        StringBuilder buffer;
+        if (text == null) {
+            buffer = new StringBuilder(size);
+        } else {
+            buffer = new StringBuilder(text);
+            buffer.setLength(size);
+        }
+        return buffer.toString();
+    }
+    
+    private void btnMostrarRecientes3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarRecientes3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMostrarRecientes2ActionPerformed
+    }//GEN-LAST:event_btnMostrarRecientes3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,8 +273,9 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGuardarRegistros;
     private javax.swing.JButton btnMostrarRecientes;
-    private javax.swing.JButton btnMostrarRecientes2;
+    private javax.swing.JButton btnMostrarRecientes3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
