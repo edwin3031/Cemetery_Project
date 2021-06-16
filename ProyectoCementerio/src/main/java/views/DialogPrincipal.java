@@ -30,7 +30,7 @@ public class DialogPrincipal extends javax.swing.JDialog {
     private void initComponents() {
 
         btnRegistrar = new javax.swing.JButton();
-        btnMostrar = new javax.swing.JButton();
+        btnVerRegistro = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBuscar1 = new javax.swing.JButton();
@@ -54,19 +54,19 @@ public class DialogPrincipal extends javax.swing.JDialog {
         getContentPane().add(btnRegistrar);
         btnRegistrar.setBounds(230, 130, 180, 100);
 
-        btnMostrar.setBackground(new java.awt.Color(255, 255, 255));
-        btnMostrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnMostrar.setForeground(new java.awt.Color(0, 0, 255));
-        btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/libro-abierto.png"))); // NOI18N
-        btnMostrar.setText("VER REGISTRO");
-        btnMostrar.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 255)));
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnVerRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        btnVerRegistro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnVerRegistro.setForeground(new java.awt.Color(0, 0, 255));
+        btnVerRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/libro-abierto.png"))); // NOI18N
+        btnVerRegistro.setText("VER REGISTRO");
+        btnVerRegistro.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 0, 255)));
+        btnVerRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnVerRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMostrar);
-        btnMostrar.setBounds(230, 290, 180, 100);
+        getContentPane().add(btnVerRegistro);
+        btnVerRegistro.setBounds(230, 290, 180, 100);
 
         btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -112,20 +112,27 @@ public class DialogPrincipal extends javax.swing.JDialog {
         dialog.setVisible(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        DialogBuscar dialog = new DialogBuscar(new javax.swing.JFrame(), true);
-    }//GEN-LAST:event_btnMostrarActionPerformed
+    private void btnVerRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRegistroActionPerformed
+       
+    }//GEN-LAST:event_btnVerRegistroActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         try {
-            DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
+            DialogVerRegistro dialog = new DialogVerRegistro(new javax.swing.JFrame(), true);
         } catch (IOException ex) {
             Logger.getLogger(DialogPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscar1ActionPerformed
-        // TODO add your handling code here:
+         DialogBuscar dialog;
+        try {
+            dialog = new DialogBuscar(new javax.swing.JFrame(), true);
+            dialog.setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(DialogPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
     }//GEN-LAST:event_btnBuscar1ActionPerformed
 
     /**
@@ -173,8 +180,8 @@ public class DialogPrincipal extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar1;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnVerRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

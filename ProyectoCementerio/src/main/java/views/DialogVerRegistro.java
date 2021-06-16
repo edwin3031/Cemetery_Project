@@ -18,21 +18,22 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import models.Registro;
 
 /**
  *
  * @author Ervin
  */
-public class DialogMostrarRegistro extends javax.swing.JDialog {
+public class DialogVerRegistro extends javax.swing.JDialog {
     RAF raf = new RAF();
     DefaultTableModel modelo;
     List<Registro> registros;
-
+    
     /**
      * Creates new form BuscarDialog
      */
-    public DialogMostrarRegistro(java.awt.Frame parent, boolean modal) throws IOException {
+    public DialogVerRegistro(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
         jtableRegistros.getTableHeader().setFont(new Font("Arial Black",Font.BOLD,14));
@@ -182,6 +183,7 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
                 for(Registro r: registros){
                 
                 //No se porque se desordeno
+                //Luego vemos porque se desordeno sigue trabajando
                 fw.write(limit(r.getCodigo(),12) + "\n");
                 fw.write(limit(r.getFechaRegistro(),10)+ "\n");
                 fw.write(limit(r.getPersonaDifunto().getNombres(),30)+ "\n");
@@ -240,14 +242,18 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogMostrarRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogVerRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogMostrarRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogVerRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogMostrarRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogVerRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogMostrarRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogVerRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -257,7 +263,7 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    DialogMostrarRegistro dialog = new DialogMostrarRegistro(new javax.swing.JFrame(), true);
+                    DialogVerRegistro dialog = new DialogVerRegistro(new javax.swing.JFrame(), true);
                     dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                         @Override
                         public void windowClosing(java.awt.event.WindowEvent e) {
@@ -266,7 +272,7 @@ public class DialogMostrarRegistro extends javax.swing.JDialog {
                     });
                     dialog.setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(DialogMostrarRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(DialogVerRegistro.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

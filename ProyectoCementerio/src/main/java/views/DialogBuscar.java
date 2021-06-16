@@ -5,7 +5,21 @@
  */
 package views;
 
+import RAF.RAF;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import models.Registro;
 
 /**
  *
@@ -13,26 +27,50 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DialogBuscar extends javax.swing.JDialog {
 
+    RAF raf = new RAF();
     DefaultTableModel modelo;
-    
-    public DialogBuscar(java.awt.Frame parent, boolean modal) {
+    List<Registro> registros;
+    TableRowSorter trs;
+
+    public DialogBuscar(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
-        modelo = new DefaultTableModel();
-        modelo.addColumn("Codigo");
-        modelo.addColumn("No Pagina");
-        modelo.addColumn("Nombres Difunto");
-        modelo.addColumn("Apellidos");
-        modelo.addColumn("No Cedula");
-        modelo.addColumn("Fecha defuncion");
-        modelo.addColumn("Nombre Responsable");
-        modelo.addColumn("Apellidos");
-        modelo.addColumn("No Cedula");
-        modelo.addColumn("Direccion");
-        modelo.addColumn("Pago terreno");
-        modelo.addColumn("Pago Cepultura");
-        
-        
+
+        jtableRegistros.getTableHeader().setFont(new Font("Arial Black", Font.BOLD, 14));
+        jtableRegistros.getTableHeader().setOpaque(false);
+
+        DefaultTableCellRenderer renderizador = new DefaultTableCellRenderer();
+        renderizador.setBackground(new Color(32, 136, 203));
+        renderizador.setForeground(new java.awt.Color(255, 255, 255));
+        renderizador.setHorizontalAlignment(JLabel.CENTER);
+        DefaultTableCellRenderer renderCelda = new DefaultTableCellRenderer();
+        renderCelda.setHorizontalAlignment(JLabel.CENTER);
+
+        for (int i = 0; i < jtableRegistros.getModel().getColumnCount(); i++) {
+            jtableRegistros.getColumnModel().getColumn(i).setHeaderRenderer(renderizador);
+            jtableRegistros.getColumnModel().getColumn(i).setCellRenderer(renderCelda);
+        }
+
+        modelo = (DefaultTableModel) jtableRegistros.getModel();
+        registros = raf.vertodo();
+        for (int i = 0; i < registros.size(); i++) {
+            modelo.addRow(new Object[]{registros.get(i).getCodigo(),
+                registros.get(i).getPersonaDifunto().getNombres(),
+                registros.get(i).getPersonaDifunto().getApellidos(),
+                registros.get(i).getPersonaDifunto().getFechaDefuncion(),
+                registros.get(i).getPersonaDifunto().getNoCedula(),
+                registros.get(i).getPersonaResponsable().getNombres(),
+                registros.get(i).getPersonaResponsable().getApellidos(),
+                registros.get(i).getPersonaResponsable().getNoCedula(),
+                registros.get(i).getTierra().getCodigo(),
+                registros.get(i).getTierra().getPagoSepultura(),
+                registros.get(i).getTierra().getPagoTerreno()});
+
+        }
+        //Mo es hora
+        jtableRegistros.setModel(modelo);
+        System.out.println(registros.size());
+
     }
 
     /**
@@ -46,20 +84,19 @@ public class DialogBuscar extends javax.swing.JDialog {
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtableRegistros = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        BuscarDifunto = new javax.swing.JTextField();
+        BuscarDifuntoNombre = new javax.swing.JTextField();
         BuscarCodigo = new javax.swing.JTextField();
         FDefuncion1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        BuscarDifunto1 = new javax.swing.JTextField();
-        FDefuncion2 = new javax.swing.JTextField();
+        BuscarResponsable = new javax.swing.JTextField();
+        BuscarCedula = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -70,57 +107,65 @@ public class DialogBuscar extends javax.swing.JDialog {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 1060, 120);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtableRegistros.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jtableRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "No Pagina", " Difunto", "Apellido", "Cedula", " Defuncion", " Responsable", "Apellido", "Cedula", "Terreno", "Cepultura"
+                "Codigo", " Difunto", "Apellido", "Cedula", " Defuncion", " Responsable", "Apellido", "Cedula", "Terreno", "Cepultura"
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(0, 102, 255));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(100);
+        jtableRegistros.setSelectionBackground(new java.awt.Color(0, 102, 255));
+        jScrollPane1.setViewportView(jtableRegistros);
+        if (jtableRegistros.getColumnModel().getColumnCount() > 0) {
+            jtableRegistros.getColumnModel().getColumn(0).setMinWidth(100);
+            jtableRegistros.getColumnModel().getColumn(0).setMaxWidth(100);
+            jtableRegistros.getColumnModel().getColumn(1).setMinWidth(100);
+            jtableRegistros.getColumnModel().getColumn(1).setMaxWidth(100);
         }
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(290, 180, 760, 330);
+        jScrollPane1.setBounds(300, 180, 760, 330);
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Busqueda Responsable", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 255))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 220, 260, 120);
+        jLabel3.setBounds(10, 230, 260, 120);
 
         jLabel4.setText("Nombres");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(30, 250, 50, 14);
+        jLabel4.setBounds(20, 250, 50, 14);
 
         jLabel5.setText("Defuncion");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(30, 280, 50, 20);
+        jLabel5.setBounds(20, 280, 50, 20);
 
         jLabel6.setText("Codigo");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(30, 310, 40, 14);
+        jLabel6.setBounds(20, 310, 40, 14);
 
-        BuscarDifunto.addActionListener(new java.awt.event.ActionListener() {
+        BuscarDifuntoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarDifuntoActionPerformed(evt);
+                BuscarDifuntoNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(BuscarDifunto);
-        BuscarDifunto.setBounds(80, 250, 180, 20);
+        BuscarDifuntoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BuscarDifuntoNombreKeyTyped(evt);
+            }
+        });
+        getContentPane().add(BuscarDifuntoNombre);
+        BuscarDifuntoNombre.setBounds(80, 250, 180, 20);
 
         BuscarCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarCodigoActionPerformed(evt);
+            }
+        });
+        BuscarCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BuscarCodigoKeyTyped(evt);
             }
         });
         getContentPane().add(BuscarCodigo);
@@ -142,37 +187,26 @@ public class DialogBuscar extends javax.swing.JDialog {
         getContentPane().add(jLabel8);
         jLabel8.setBounds(30, 420, 50, 20);
 
-        BuscarDifunto1.addActionListener(new java.awt.event.ActionListener() {
+        BuscarResponsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarDifunto1ActionPerformed(evt);
+                BuscarResponsableActionPerformed(evt);
             }
         });
-        getContentPane().add(BuscarDifunto1);
-        BuscarDifunto1.setBounds(80, 390, 180, 20);
+        getContentPane().add(BuscarResponsable);
+        BuscarResponsable.setBounds(80, 390, 180, 20);
 
-        FDefuncion2.addActionListener(new java.awt.event.ActionListener() {
+        BuscarCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FDefuncion2ActionPerformed(evt);
+                BuscarCedulaActionPerformed(evt);
             }
         });
-        getContentPane().add(FDefuncion2);
-        FDefuncion2.setBounds(80, 420, 180, 20);
+        getContentPane().add(BuscarCedula);
+        BuscarCedula.setBounds(80, 420, 180, 20);
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)), "Busqueda Responsable", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 255))); // NOI18N
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(20, 360, 260, 100);
-
-        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnBuscar.setText("BUSCAR");
-        btnBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBuscar);
-        btnBuscar.setBounds(80, 480, 130, 30);
+        jLabel10.setBounds(10, 370, 260, 100);
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("   Llene uno de los campos del formulario de busqueda del difunto o del formulario de busqueda del reponsable.");
@@ -186,32 +220,63 @@ public class DialogBuscar extends javax.swing.JDialog {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 180, 250, 20);
 
-        pack();
+        setSize(new java.awt.Dimension(1078, 607));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BuscarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscarCodigoActionPerformed
 
-    private void BuscarDifuntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDifuntoActionPerformed
+    private void BuscarDifuntoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDifuntoNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarDifuntoActionPerformed
+    }//GEN-LAST:event_BuscarDifuntoNombreActionPerformed
 
     private void FDefuncion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDefuncion1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FDefuncion1ActionPerformed
 
-    private void BuscarDifunto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDifunto1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarDifunto1ActionPerformed
+    private void BuscarResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarResponsableActionPerformed
+        BuscarResponsable.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent e) {
+                trs.setRowFilter(RowFilter.regexFilter("(?i)" + BuscarResponsable.getText(), 5));
+            }
+        });
+        trs = new TableRowSorter(modelo);
+        jtableRegistros.setRowSorter(trs);
+    }//GEN-LAST:event_BuscarResponsableActionPerformed
 
-    private void FDefuncion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDefuncion2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FDefuncion2ActionPerformed
+    private void BuscarCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCedulaActionPerformed
+        BuscarCedula.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent e) {
+                trs.setRowFilter(RowFilter.regexFilter("?i" + BuscarCedula.getText(), 7));
+            }
+        });
+        trs = new TableRowSorter(modelo);
+        jtableRegistros.setRowSorter(trs);
+    }//GEN-LAST:event_BuscarCedulaActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void BuscarDifuntoNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscarDifuntoNombreKeyTyped
+        BuscarDifuntoNombre.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                trs.setRowFilter(RowFilter.regexFilter("(?i)" + BuscarDifuntoNombre.getText(), 1));
+            }
+        });
+        trs = new TableRowSorter(modelo);
+        jtableRegistros.setRowSorter(trs);
+    }//GEN-LAST:event_BuscarDifuntoNombreKeyTyped
+
+    private void BuscarCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscarCodigoKeyTyped
+        BuscarCodigo.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                trs.setRowFilter(RowFilter.regexFilter("(?i)" + BuscarCodigo.getText(), 0));
+            }
+        });
+        trs = new TableRowSorter(modelo);
+        jtableRegistros.setRowSorter(trs);
+    }//GEN-LAST:event_BuscarCodigoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -244,25 +309,28 @@ public class DialogBuscar extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogBuscar dialog = new DialogBuscar(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                try {
+                    DialogBuscar dialog = new DialogBuscar(new javax.swing.JFrame(), true);
+                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosing(java.awt.event.WindowEvent e) {
+                            System.exit(0);
+                        }
+                    });
+                    dialog.setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(DialogBuscar.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BuscarCedula;
     private javax.swing.JTextField BuscarCodigo;
-    private javax.swing.JTextField BuscarDifunto;
-    private javax.swing.JTextField BuscarDifunto1;
+    private javax.swing.JTextField BuscarDifuntoNombre;
+    private javax.swing.JTextField BuscarResponsable;
     private javax.swing.JTextField FDefuncion1;
-    private javax.swing.JTextField FDefuncion2;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -274,6 +342,6 @@ public class DialogBuscar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jtableRegistros;
     // End of variables declaration//GEN-END:variables
 }
