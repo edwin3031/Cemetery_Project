@@ -5,6 +5,10 @@
  */
 package models;
 
+/**
+ *
+ * @author Ervin
+ */
 public class Registro {
     String codigo;
     String fechaRegistro;

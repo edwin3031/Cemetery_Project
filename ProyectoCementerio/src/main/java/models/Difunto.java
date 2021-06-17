@@ -5,6 +5,10 @@
  */
 package models;
 
+/**
+ *
+ * @author Ervin
+ */
 public class Difunto extends Persona {
     private String fechaDefuncion;
 

@@ -5,6 +5,10 @@
  */
 package models;
 
+/**
+ *
+ * @author Ervin
+ */
 public class Terreno {
     private String codigo;
     private int pagoTerreno;

@@ -5,6 +5,10 @@
  */
 package models;
 
+/**
+ *
+ * @author Ervin
+ */
 public class Responsable extends Persona {
     private String direccion;
 
