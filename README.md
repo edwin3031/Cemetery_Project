@@ -7,3 +7,6 @@ ENGLISH
 --------------------------------------------------------------------------------------------------------------------------------
 This project is a desktop application, oriented towards a cemetery that registers and keeps track of how many deceased there are, the relatives of those deceased, the lot it occupies and the date of registration. You can also visualize all this data, as well as search through different filters to have greater control over them. The application makes use of files to save the information, the user is free to choose where he wants said information to be saved.
 We hope this project is useful for you.
+
+
+![Home](https://user-images.githubusercontent.com/80427154/146584086-dabb39eb-c9ca-4350-88d8-b3b4f9ac2675.png)
